@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+<title> Blue Mango
+</title>
+</head>
+<body>
+	<div>
+		<p> Blue Mango </p>
+		<p id="timer">  </p>
+	</div>
+	<button onclick="window.localStorage.removeItem('time');"> Clear Timer </button>
+
+
+<script type="text/javascript">
+
+	window.localStorage.removeItem('time');
+		
+	
+	var timerID = document.getElementById("timer");
+
+	
+	if (localStorage.getItem("time") === null )
+	{
+		 time = 0;
+		timerID.innerHTML = time;
+
+	}
+
+	var timerID = document.getElementById("timer");
+	
+
+	setInterval( function(){
+
+		time = time + 1;
+		timerID.innerHTML = time;
+		localStorage.setItem("time", time);
+	}, 1000);
+</script>
+</body>
+
+</html>
