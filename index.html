@@ -12,13 +12,21 @@
 	.container {
 		display: grid;
 
-		grid-template-columns: 100px auto 100px;
+		grid-template-columns: 100px auto auto 100px;
 		grid-template-rows: 25% 25% 25% 25%;
 	}
 
-	.item {
+	.item-1 {
 		grid-column-start:2;
 		grid-column-end:2;
+		grid-row-start:2;
+		grid-row-end:2;
+
+	}
+
+	.item-2 {
+		grid-column-start:3;
+		grid-column-end:3;
 		grid-row-start:2;
 		grid-row-end:2;
 
@@ -32,11 +40,21 @@
 </style>
 
 	<div id="gameRoom" class="container">
-		<div class="item" style="border: 1px green solid;text-align: center;">
+		<div class="item-1" style="border: 1px green solid;text-align: center;">
 			<h1> Blue Mango || Vampire Savior </h1>
+			<small> Level 1 Necromancer </small>
 			<p> <span id="timer"> 0 </span> skeletons raised </p>
 			<button onclick="wipeTimer();"> Destroy all skeletons! </button>
 			<button onclick="add();"> Summon a guy! </button>
+		</div>	
+		<div class="item-2" style="border: 1px green solid;text-align: center;">
+			<h2> Activties </h1>
+			<ul>
+				<li>Invade Town</li>
+				<li>Summon Golem</li>
+				<li>Research Curse</li>
+			</ul>
+			<p> <span id="timer"> 0 </span> liters of blood harvested </p>
 		</div>	
 
 	</div>
@@ -46,7 +64,6 @@
 <script type="text/javascript">
 //Initialize variables
 var time = 0;
-var timerID = document.getElementById("timer");
 var timerID = document.getElementById("timer");
 
 //Adds 1 value to the timer
