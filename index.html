@@ -32,11 +32,11 @@
 </style>
 
 	<div id="gameRoom" class="container">
-		<div class="item" style="text-align: center;">
+		<div class="item" style="border: 1px green solid;text-align: center;">
 			<h1> Blue Mango || Vampire Savior </h1>
 			<p> <span id="timer"> 0 </span> skeletons raised </p>
-			<button onclick="wipeTimer();"> Wipe Timer </button>
-			<button onclick="add();"> Add Point </button>
+			<button onclick="wipeTimer();"> Destroy all skeletons! </button>
+			<button onclick="add();"> Summon a guy! </button>
 		</div>	
 
 	</div>
@@ -58,15 +58,15 @@ function add(){
 
 //Sets the value of the timer to 0, and removes the item from localstorage.
 function wipeTimer(){
-	localStorage.removeItem('time');
 	time = 0;
-	timerID.innerHTML = time;
+	localStorage.removeItem('time');
+	timerID.innerHTML = localStorage.getItem('time');
 }
 
 //Check to see if time exists in storage. If it doesn't, set it to 0.
 if (localStorage.getItem("time") === null )
 {
-	localStorage.setItem("time", 0);
+	localStorage.setItem("time", "0");
 	timerID.innerHTML = parseInt(localStorage.getItem("time"));
 
 } else {
@@ -81,9 +81,9 @@ setInterval(function(){
 	, 1)
 
 //Adds to the timer every second.
-setInterval( function(){
+*setInterval( function(){
 	time = time + 1;	
-}, 1000); 
+}, 1000);  
 </script>
 </body>
 
