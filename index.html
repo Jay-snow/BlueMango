@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div>
-		<p> Blue Mango </p>
+		<h1> Blue Mango </h1>
 		<p id="timer">  </p>
 	</div>
 	<button onclick="wipeTimer();"> Wipe Timer </button>
@@ -16,55 +16,46 @@
 
 
 <script type="text/javascript">
+//Initialize variables
 var time = 0;
+var timerID = document.getElementById("timer");
+var timerID = document.getElementById("timer");
 
-	function add(){
-		time = time + 1; 
-		timerID.innerHTML = time;
-		localStorage.setItem("time", time);
-	}
+//Adds 1 value to the timer
+function add(){
+	time = time + 1; 
+	timerID.innerHTML = time;
+	localStorage.setItem("time", time);
+}
 
-	function wipeTimer(){
-		window.localStorage.removeItem('time');
-		time = 0;
-		timerID.innerHTML = time;
-		
+//Sets the value of the timer to 0, and removes the item from localstorage.
+function wipeTimer(){
+	localStorage.removeItem('time');
+	time = 0;
+	timerID.innerHTML = time;
+}
 
-	}
-	
+//Check to see if time exists in storage. If it doesn't, set it to 0.
+if (localStorage.getItem("time") === null )
+{
+	localStorage.setItem("time", 0);
+	timerID.innerHTML = parseInt(localStorage.getItem("time"));
 
-	
-	var timerID = document.getElementById("timer");
+} else {
+	time = parseInt(localStorage.getItem("time", time));
+}
 
-	
-	if (localStorage.getItem("time") === null )
-	{
-		 time = 0;
-		timerID.innerHTML = time;
+//Updates timer all the time too much of the time. Also saves the time all the time. Bad idea?
+setInterval(function(){
+	timerID.innerHTML = time;
+	localStorage.setItem("time", time);
+}
+	, 1)
 
-	} else {
-		time = parseInt(localStorage.getItem("time", time));
-	}
-
-	var timerID = document.getElementById("timer");
-	
-		//time = time + 1;
-		timerID.innerHTML = time;
-		localStorage.setItem("time", time);
-
-
-	setInterval(function(){
-		timerID.innerHTML = time;
-	}
-
-		, 1000)
-
-/*	setInterval( function(){
-
-		time = time + 1;
-		timerID.innerHTML = time;
-		localStorage.setItem("time", time);
-	}, 1000); */
+//Adds to the timer every second.
+setInterval( function(){
+	time = time + 1;	
+}, 1000); 
 </script>
 </body>
 
