@@ -11,13 +11,28 @@
 		<p> Blue Mango </p>
 		<p id="timer">  </p>
 	</div>
-	<button onclick="window.localStorage.removeItem('time');"> Clear Timer </button>
+	<button onclick="wipeTimer();"> Wipe Timer </button>
+	<button onclick="add();"> Add Point </button>
 
 
 <script type="text/javascript">
+var time = 0;
 
-	window.localStorage.removeItem('time');
+	function add(){
+		time = time + 1; 
+		timerID.innerHTML = time;
+		localStorage.setItem("time", time);
+	}
+
+	function wipeTimer(){
+		window.localStorage.removeItem('time');
+		time = 0;
+		timerID.innerHTML = time;
 		
+
+	}
+	
+
 	
 	var timerID = document.getElementById("timer");
 
@@ -27,17 +42,29 @@
 		 time = 0;
 		timerID.innerHTML = time;
 
+	} else {
+		time = parseInt(localStorage.getItem("time", time));
 	}
 
 	var timerID = document.getElementById("timer");
 	
+		//time = time + 1;
+		timerID.innerHTML = time;
+		localStorage.setItem("time", time);
 
-	setInterval( function(){
+
+	setInterval(function(){
+		timerID.innerHTML = time;
+	}
+
+		, 1000)
+
+/*	setInterval( function(){
 
 		time = time + 1;
 		timerID.innerHTML = time;
 		localStorage.setItem("time", time);
-	}, 1000);
+	}, 1000); */
 </script>
 </body>
 
