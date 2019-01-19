@@ -3,16 +3,44 @@
 
 <head>
 	<meta charset="UTF-8">
-<title> Blue Mango
+<title> Blue Mango || Vampire Savior
 </title>
 </head>
 <body>
-	<div>
-		<h1> Blue Mango </h1>
-		<p id="timer">  </p>
+
+<style>
+	.container {
+		display: grid;
+
+		grid-template-columns: 100px auto 100px;
+		grid-template-rows: 25% 25% 25% 25%;
+	}
+
+	.item {
+		grid-column-start:2;
+		grid-column-end:2;
+		grid-row-start:2;
+		grid-row-end:2;
+
+	}
+
+	#gameRoom {
+		border:1px black solid;
+	}
+
+
+</style>
+
+	<div id="gameRoom" class="container">
+		<div class="item" style="text-align: center;">
+			<h1> Blue Mango || Vampire Savior </h1>
+			<p> <span id="timer"> 0 </span> skeletons raised </p>
+			<button onclick="wipeTimer();"> Wipe Timer </button>
+			<button onclick="add();"> Add Point </button>
+		</div>	
+
 	</div>
-	<button onclick="wipeTimer();"> Wipe Timer </button>
-	<button onclick="add();"> Add Point </button>
+
 
 
 <script type="text/javascript">
