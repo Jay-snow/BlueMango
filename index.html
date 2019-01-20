@@ -32,6 +32,14 @@
 
 	}
 
+	.item-3 {
+		grid-column-start:1;
+		grid-column-end: 5;
+		grid-row-start:3;
+		grid-row-end:4;
+
+	}
+
 	#gameRoom {
 		border:1px black solid;
 	}
@@ -55,6 +63,10 @@
 				<li>Research Curse</li>
 			</ul>
 			<p> <span id="timer"> 0 </span> liters of blood harvested </p>
+		</div>
+		<div class="item-3" style="border: 1px green solid;text-align: center;">
+		<h3> The play field </h3>
+
 		</div>	
 
 	</div>
@@ -70,14 +82,14 @@ var timerID = document.getElementById("timer");
 function add(){
 	time = time + 1; 
 	timerID.innerHTML = time;
-	localStorage.setItem("time", time);
 }
 
 //Sets the value of the timer to 0, and removes the item from localstorage.
 function wipeTimer(){
 	time = 0;
-	localStorage.removeItem('time');
 	timerID.innerHTML = localStorage.getItem('time');
+	localStorage.setItem("time", time);
+	
 }
 
 //Check to see if time exists in storage. If it doesn't, set it to 0.
