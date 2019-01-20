@@ -54,6 +54,7 @@
 			<p> <span id="timer"> 0 </span> skeletons raised </p>
 			<button onclick="wipeTimer();"> Destroy all skeletons! </button>
 			<button onclick="add();"> Summon a guy! </button>
+			<button onclick="createSummoner();"> Create Summoner </button>
 		</div>	
 		<div class="item-2" style="border: 1px green solid;text-align: center;">
 			<h2> Activties </h1>
@@ -67,6 +68,11 @@
 		<div class="item-3" style="border: 1px green solid;text-align: center;">
 		<h3> The play field </h3>
 
+		<h4> Items / Spells / Assets </h4>
+
+		<p> <span id="summoners">0</span> summoner at work. </p>
+
+
 		</div>	
 
 	</div>
@@ -77,6 +83,11 @@
 //Initialize variables
 var time = 0;
 var timerID = document.getElementById("timer");
+var summonerID = document.getElementById("summoners");
+
+var items_Summoner = 0;
+var totalItems = [0];
+var power = 0
 
 //Adds 1 value to the timer
 function add(){
@@ -87,9 +98,21 @@ function add(){
 //Sets the value of the timer to 0, and removes the item from localstorage.
 function wipeTimer(){
 	time = 0;
+	items_Summoner = 0;
+	summonerID.innerHTML = 0;
 	timerID.innerHTML = localStorage.getItem('time');
 	localStorage.setItem("time", time);
-	
+	localStorage.setItem("items_Summoner", items_Summoner);
+	totalItems[0] = localStorage.getItem("items_Summoner", items_Summoner);
+}
+
+function createSummoner(){
+	items_Summoner = items_Summoner + 1;
+	//power +=1;
+	summonerID.innerHTML = items_Summoner;
+	localStorage.setItem("items_Summoner", items_Summoner);
+	totalItems[0] = localStorage.getItem("items_Summoner", items_Summoner);
+
 }
 
 //Check to see if time exists in storage. If it doesn't, set it to 0.
@@ -100,6 +123,7 @@ if (localStorage.getItem("time") === null )
 
 } else {
 	time = parseInt(localStorage.getItem("time", time));
+	items_Summoner = parseInt(localStorage.getItem("items_Summoner", items_Summoner));
 }
 
 //Updates timer all the time too much of the time. Also saves the time all the time. Bad idea?
@@ -110,9 +134,11 @@ setInterval(function(){
 	, 1)
 
 //Adds to the timer every second.
-*setInterval( function(){
-	time = time + 1;	
+setInterval( function(){
+	power = parseInt(totalItems[0]);
+	time = time + power;
 }, 1000);  
+
 </script>
 </body>
 
