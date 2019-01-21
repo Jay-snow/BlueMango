@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-<title> Blue Mango || Vampire Savior
+<title> Incremental Summoner
 </title>
 </head>
 <body>
@@ -49,12 +49,10 @@
 
 	<div id="gameRoom" class="container">
 		<div class="item-1" style="border: 1px green solid;text-align: center;">
-			<h1> Blue Mango || Vampire Savior </h1>
+			<h1> Incremental Summoner</h1>
 			<small> Level 1 Necromancer </small>
 			<p> <span id="timer"> 0 </span> skeletons raised </p>
-			<button onclick="wipeTimer();"> Destroy all skeletons! </button>
-			<button onclick="add();"> Summon a guy! </button>
-			<button onclick="createSummoner();"> Create Summoner </button>
+			
 		</div>	
 		<div class="item-2" style="border: 1px green solid;text-align: center;">
 			<h2> Activties </h1>
@@ -63,6 +61,9 @@
 				<li>Summon Golem</li>
 				<li>Research Curse</li>
 			</ul>
+			<button onclick="wipeTimer();"> Destroy all skeletons! </button>
+			<button onclick="add();"> Summon a guy! </button>
+			<button onclick="createSummoner();"> Create Summoner </button>
 			<p> <span id="timer"> 0 </span> liters of blood harvested </p>
 		</div>
 		<div class="item-3" style="border: 1px green solid;text-align: center;">
@@ -108,7 +109,6 @@ function wipeTimer(){
 
 function createSummoner(){
 	items_Summoner = items_Summoner + 1;
-	//power +=1;
 	summonerID.innerHTML = items_Summoner;
 	localStorage.setItem("items_Summoner", items_Summoner);
 	totalItems[0] = localStorage.getItem("items_Summoner", items_Summoner);
@@ -137,7 +137,7 @@ setInterval(function(){
 setInterval( function(){
 	power = parseInt(totalItems[0]);
 	time = time + power;
-}, 1000);  
+}, 500);  
 
 </script>
 </body>
