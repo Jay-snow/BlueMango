@@ -21,9 +21,20 @@ ReactDOM.render(
 
 //Initialize variables
 var time = 0;
-var timerID = document.getElementById("timer");
-var summonerID = document.getElementById("summoners");
-var worshipperID = document.getElementById("worshippers");
+const timerID = document.getElementById("timer");
+const summonerID = document.getElementById("summoners");
+const worshipperID = document.getElementById("worshippers");
+const playerTitle = document.getElementById("player-title");
+
+var player = {
+	name: 'Jynx',
+	level: 1,
+	title: 'whelp'
+} 
+
+playerTitle.innerHTML = `
+	<small> ` + player.name + ` </small>
+`;
 
 var items_Summoner = 0;
 var items_Worshipper = 0;
