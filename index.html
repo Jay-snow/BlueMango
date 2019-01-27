@@ -47,31 +47,33 @@
 
 
 </style>
-<h1> Incremental Summoner</h1>
+
 
 <div id="js"></div>
 <div id="react"></div>
 
 	<div id="gameRoom" class="container">
 		<div class="profile" style="border: 1px green solid;text-align: center;">
+			<h1 id="profile-title"> </h1>
+			<span id="player-title"></span>
+			<span id="timer"> 0 </span>
 			
-			<span id="player-title"><small>  </small></span>
-			<p> <span id="timer"> 0 </span> skeletons raised </p>
-			<button> Quests </button>
 			
 		</div>	
 		<div class="item-2" style="border: 1px green solid;text-align: center;">
-			<h2> Activties </h1>
+			<h1> Activties </h1>
 			<ul>
 				<li>Invade Town</li>
 				<li>Summon Golem</li>
 				<li>Research Curse</li>
 			</ul>
-			<button onclick="wipeTimer();"> Destroy all skeletons! </button>
-			<button onclick="add();"> Summon a guy! </button>
-			<button onclick="createSummoner();"> Create Summoner </button>
-			<p> <span id="timer"> 0 </span> liters of blood harvested </p>
+			<span id="destroy-timer"> </span>
+			<span id="create-guy"> </span>
+			<span id="create-summoner"> </span>
+			
+			<p> <span id="timer"> 0 </span> </p>
 		</div>
+
 		<div class="item-3" style="border: 1px green solid;text-align: center;">
 		<h3> The play field </h3>
 
