@@ -25,15 +25,36 @@ const timerID = document.getElementById("timer");
 const summonerID = document.getElementById("summoners");
 const worshipperID = document.getElementById("worshippers");
 const playerTitle = document.getElementById("player-title");
+const destroyTimerID = document.getElementById("destroy-timer");
+const createGuyID = document.getElementById("create-guy");
+const createSummonerID = document.getElementById("create-guy");
+const profileTitleID = document.getElementById("profile-title");
 
 var player = {
 	name: 'Jynx',
 	level: 1,
-	title: 'whelp'
-} 
+	title: ' the whelp'
+}; 
 
+//Setup all the fields
 playerTitle.innerHTML = `
-	<small> ` + player.name + ` </small>
+	<small> ` + player.name + player.title + ` </small>
+`;
+
+destroyTimerID.innerHTML = `
+	<button onclick="wipeTimer();"> Destroy all skeletons! </button> 
+`;
+
+createGuyID.innerHTML = `
+	<button onclick="add();"> Summon a guy! </button> 
+`;
+
+createSummonerID.innerHTML = `
+	<button onclick="createSummoner();"> Create Summoner </button>
+`;
+
+profileTitleID.innerHTML =`
+	<h1>` + player.name + `</h1>
 `;
 
 var items_Summoner = 0;
