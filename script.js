@@ -36,7 +36,9 @@ var player = {
 	title: ' the whelp'
 }; 
 
-//Setup all the fields
+function gameinit(){
+
+//Setup the players profile
 playerTitle.innerHTML = `
 	<small> ` + player.name + player.title + ` </small>
 `;
@@ -111,3 +113,5 @@ setInterval( function(){
 	power = parseInt(totalItems[0]);
 	time = time + power;
 }, 500);  
+
+};
