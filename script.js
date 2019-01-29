@@ -20,50 +20,13 @@ ReactDOM.render(
 
 
 //Initialize variables
-var time = 0;
-const timerID = document.getElementById("timer");
-const summonerID = document.getElementById("summoners");
-const worshipperID = document.getElementById("worshippers");
-const playerTitle = document.getElementById("player-title");
-const destroyTimerID = document.getElementById("destroy-timer");
-const createGuyID = document.getElementById("create-guy");
-const createSummonerID = document.getElementById("create-guy");
-const profileTitleID = document.getElementById("profile-title");
+
 
 var player = {
-	name: 'Jynx',
+	name: 'Earth',
 	level: 1,
 	title: ' the whelp'
 }; 
-
-function gameinit(){
-
-//Setup the players profile
-playerTitle.innerHTML = `
-	<small> ` + player.name + player.title + ` </small>
-`;
-
-destroyTimerID.innerHTML = `
-	<button onclick="wipeTimer();"> Destroy all skeletons! </button> 
-`;
-
-createGuyID.innerHTML = `
-	<button onclick="add();"> Summon a guy! </button> 
-`;
-
-createSummonerID.innerHTML = `
-	<button onclick="createSummoner();"> Create Summoner </button>
-`;
-
-profileTitleID.innerHTML =`
-	<h1>` + player.name + `</h1>
-`;
-
-var items_Summoner = 0;
-var items_Worshipper = 0;
-// [summoner,worshipper]
-var totalItems = [0,0];
-var power = 0
 
 //Adds 1 value to the timer
 function add(){
@@ -90,6 +53,24 @@ function createSummoner(){
 
 }
 
+var time = 0;
+const timerID = document.getElementById("timer");
+const summonerID = document.getElementById("summoners");
+const worshipperID = document.getElementById("worshippers");
+const playerTitle = document.getElementById("player-title");
+const destroyTimerID = document.getElementById("destroy-timer");
+const createGuyID = document.getElementById("create-guy");
+const createSummonerID = document.getElementById("create-summoner");
+const profileTitleID = document.getElementById("profile-title");
+
+var items_Summoner = 0;
+var items_Worshipper = 0;
+// [summoner,worshipper]
+var totalItems = [0,0];
+var power = 0
+
+
+
 //Check to see if time exists in storage. If it doesn't, set it to 0.
 if (localStorage.getItem("time") === null )
 {
@@ -112,6 +93,30 @@ setInterval(function(){
 setInterval( function(){
 	power = parseInt(totalItems[0]);
 	time = time + power;
-}, 500);  
+}, 500);
+
+
+//Draws the game elements to the screen
+function gameinit(){
+
+playerTitle.innerHTML = `
+	<small> ` + player.name + player.title + ` </small>
+`;
+
+destroyTimerID.innerHTML = `
+	<button onclick="wipeTimer();"> Destroy all skeletons! </button> 
+`;
+
+createGuyID.innerHTML = `
+	<button onclick="add();"> Summon a guy! </button> 
+`;
+
+createSummonerID.innerHTML = `
+	<button onclick="createSummoner();"> Create Summoner </button>
+`;
+
+profileTitleID.innerHTML =`
+	<h1>` + player.name + `</h1>
+`;
 
 };
