@@ -13,31 +13,24 @@
 	.container {
 		display: grid;
 
-		grid-template-columns: 100px auto auto 100px;
-		grid-template-rows: 25% 25% 25% 25%;
+		grid-template-columns: 100px auto  100px;
+		grid-template-rows: 65% 25%;
 	}
 
 	.profile {
-		grid-column-start:2;
-		grid-column-end:2;
-		grid-row-start:2;
-		grid-row-end:2;
+		grid-column-start:1;
+		grid-column-end:4;
+		grid-row-start:1;
+		grid-row-end:1;
 
 	}
 
-	.item-2 {
-		grid-column-start:3;
-		grid-column-end:3;
-		grid-row-start:2;
-		grid-row-end:2;
-
-	}
 
 	.item-3 {
 		grid-column-start:1;
-		grid-column-end: 5;
-		grid-row-start:3;
-		grid-row-end:4;
+		grid-column-end: 4;
+		grid-row-start:2;
+		grid-row-end:2;
 
 	}
 
@@ -57,22 +50,14 @@
 			<h1 id="profile-title"> </h1>
 			<span id="player-title"></span>
 			<span id="timer"> 0 </span>
-			
-			
-		</div>	
-		<div class="item-2" style="border: 1px green solid;text-align: center;">
-			<h1> Activties </h1>
-			<ul>
-				<li>Invade Town</li>
-				<li>Summon Golem</li>
-				<li>Research Curse</li>
-			</ul>
 			<span id="destroy-timer"> </span>
 			<span id="create-guy"> </span>
 			<span id="create-summoner"> </span>
 			
-			<p> <span id="timer"> 0 </span> </p>
-		</div>
+			
+			
+		</div>	
+
 
 		<div class="item-3" style="border: 1px green solid;text-align: center;">
 		<h3> The play field </h3>
