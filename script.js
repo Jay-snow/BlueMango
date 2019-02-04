@@ -52,6 +52,9 @@ const playerTitle = document.getElementById("player-title");
 const destroyTimerID = document.getElementById("destroy-timer");
 const createGuyID = document.getElementById("create-guy");
 const createSummonerID = document.getElementById("create-summoner");
+const createSummonerID2 = document.getElementById("create-summoner2");
+const createSummonerID3 = document.getElementById("create-summoner3");
+
 const profileTitleID = document.getElementById("profile-title");
 
 var items_Summoner = 0;
@@ -71,7 +74,7 @@ var power = 0;
 // it's methods, rather than a series of one-off function calls. I think that will make my code more 
 //readable - I need to look into some object oriented stuff to see if I'm right in this train on thought.
 
-function wipeTimer(){
+function wipeTimer(obj){
 	time = 0;
 	items_Summoner = 0;
 	summonerID.innerHTML = 0;
@@ -79,7 +82,7 @@ function wipeTimer(){
 	localStorage.setItem("time", time);
 	localStorage.setItem("items_Summoner", items_Summoner);
 	totalItems[0] = localStorage.getItem("items_Summoner", items_Summoner);
-	var obj =  {
+	obj =  {
 		time: time,
 		items_Summoner: items_Summoner,
 		timerID: timerID,
@@ -90,14 +93,6 @@ function wipeTimer(){
 	return obj;
 }
 
-var { 
-	 time: time,
-	 items_Summoner: items_Summoner,
-	 timerID: timerID,
-	 //clearTime: localStorage.setItem("time", time),
-	 //clearItem: localStorage.setItem("items_Summoner", items_Summoner),
-	 totalItems: totelItems[0]
-	} = wipeTimer();
 
 
 
@@ -122,6 +117,15 @@ createGuyID.innerHTML = `
 createSummonerID.innerHTML = `
 	<button onclick="createSummoner();"> Create Summoner </button>
 `;
+
+createSummonerID2.innerHTML = `
+	<button onclick="createSummoner();"> Create Summoner 2 </button>
+`;
+
+createSummonerID3.innerHTML = `
+	<button onclick="createSummoner();"> Create Summoner 3 </button>
+`;
+
 
 profileTitleID.innerHTML =`
 	<h1>` + player.name + `</h1>
